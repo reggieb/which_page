@@ -18,8 +18,14 @@
 </ul>
 
 <p>Matching sites</p>
-<% @source_pages.each do |source_page| %>
-  <p><%= link_to source_page.url, source_page %></p>
-<% end %>
-  
+  <% unless @source_pages.present? %>
+    <p>There are no keywords in the text you've entered.</p>
+  <% else %>
+
+    <% @source_pages.each do |source_page| %>
+      <p><%= link_to source_page.url, source_page %></p>
+    <% end %>
+
+  <% end %>
+    
 <% end %>

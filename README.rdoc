@@ -1,6 +1,6 @@
 = Which Page
 
-A rails app that I'm using to play with searching the best web page (within
+A rails app that I'm using to play with searching for the best web page (within
 a defined set of pages) to answer a question.
 
 == Alchemyapi
