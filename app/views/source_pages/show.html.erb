@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @source_page.url %>
+</p>
+
+<p>Keywords</p>
+<ul>
+  <% @source_page.keywords.each do |keyword| %>
+  <li>
+    <strong><%= keyword.text %></strong>
+    <%= keyword.relevance %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_source_page_path(@source_page) %> |
+<%= link_to 'Back', source_pages_path %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Source Pages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @source_pages.each do |source_page| %>
+      <tr>
+        <td><%= source_page.url %></td>
+        <td><%= link_to 'Show', source_page %></td>
+        <td><%= link_to 'Edit', edit_source_page_path(source_page) %></td>
+        <td><%= link_to 'Destroy', source_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Source page', new_source_page_path %>

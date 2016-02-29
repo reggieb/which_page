@@ -1,0 +1,30 @@
+= Which Page
+
+A rails app that I'm using to play with searching the best web page (within
+a defined set of pages) to answer a question.
+
+== Alchemyapi
+
+The analysis of the text in the web pages and the question is provided by
+Alchemyapi. See http://www.alchemyapi.com/ for information about the use
+of this api.
+
+To use Alchemyapi you will need to get an application key from their site
+and create a file api_key.txt at the root of this app containing only that
+key.
+
+== Set up
+
+Run `rake db:setup` to set up the database
+
+== Usage
+
+Start the app (for example with `rails server`). 
+
+Then navigate to `/source_pages`, and enter the urls of the pages you wish 
+to use. This will create a set of keywords found within the page text.
+
+Then go to '/' and enter a question. The source pages that best match the
+question should then be displayed.
+
+

@@ -1,0 +1,25 @@
+<h1>Question</h1>
+<%= form_for Question.new do |f| %>
+  <%= f.label :text, 'Ask something' %>
+  <%= f.text_field :text %>
+  <%= f.submit %>
+<% end %>
+  
+<% if @question %>
+<p>
+  <strong>You asked:</strong>
+  <%= @text %>
+</p>
+<p>Keywords</p>
+<ul>
+  <% @question.keywords.each do |keyword| %>
+  <li><%= keyword %></li>
+  <% end %>
+</ul>
+
+<p>Matching sites</p>
+<% @source_pages.each do |source_page| %>
+  <p><%= link_to source_page.url, source_page %></p>
+<% end %>
+  
+<% end %>

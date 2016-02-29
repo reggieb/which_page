@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Keywords</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>Relevance</th>
+      <th>Page</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @keywords.each do |keyword| %>
+      <tr>
+        <td><%= keyword.text %></td>
+        <td><%= keyword.relevance %></td>
+        <td><%= keyword.url %></td>
+        <td><%= link_to 'Show', keyword %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

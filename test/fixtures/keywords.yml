@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keyword: MyString
+  relevance: 9.99
+  sentiment: MyString
+  source_page_id: 
+
+two:
+  keyword: MyString
+  relevance: 9.99
+  sentiment: MyString
+  source_page_id: 

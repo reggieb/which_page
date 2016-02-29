@@ -1,0 +1,21 @@
+<%= form_for(@source_page) do |f| %>
+  <% if @source_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@source_page.errors.count, "error") %> prohibited this source_page from being saved:</h2>
+
+      <ul>
+      <% @source_page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
