@@ -8,10 +8,13 @@ class SourcePage < ActiveRecord::Base
   
   def build_keywords
     keywords.delete_all
-    response = alchemyapi.keywords('html', body)
-    raise 'Error in keyword extraction call: ' + response['statusInfo'] unless response['status'] == 'OK'
-    response['keywords'].each do |keyword_params|
-      keywords.find_or_create_by keyword_params
+    response = alchemyapi.combined('url', url, { 'extract'=>'page-image,keyword,entity' })
+    raise 'Error in combined extraction call: ' + response['statusInfo'] unless response['status'] == 'OK'
+    result = (response['keywords'] || []) + (response['entities'] || []).collect{|e| e.slice('text', 'relevance')}
+    result.each do |params|
+      keywords.find_or_create_by(text: params['text']) do |keyword|
+        keyword.relevance = params['relevance'].to_f if !keyword.relevance? || keyword.relevance < params['relevance'].to_f
+      end
     end
   end
   

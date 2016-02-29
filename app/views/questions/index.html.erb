@@ -10,12 +10,10 @@
   <strong>You asked:</strong>
   <%= @text %>
 </p>
-<p>Keywords</p>
-<ul>
-  <% @question.keywords.each do |keyword| %>
-  <li><%= keyword %></li>
-  <% end %>
-</ul>
+
+<p>
+  <strong>Criteria found:</strong>
+  <%= @criteria.to_sentence %>
 
 <p>Matching sites</p>
   <% unless @source_pages.present? %>
