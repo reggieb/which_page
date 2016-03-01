@@ -16,6 +16,8 @@ class QuestionsController < ApplicationController
       []
     end
     @search = Search.for @criteria
+    @fuzzy_words = @criteria.collect{|c| Thesaurus.nouns_matching(c)}.flatten
+    @fuzzy_search = Search.for @fuzzy_words
     render :index
     
   end
