@@ -17,3 +17,5 @@
 /tmp
 
 api_key.txt
+
+/data/ferret/**/*

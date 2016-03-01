@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
     else
       []
     end
+    @search = Search.for @criteria
     render :index
     
   end

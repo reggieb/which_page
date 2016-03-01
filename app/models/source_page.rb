@@ -4,6 +4,7 @@ class SourcePage < ActiveRecord::Base
   has_many :keywords
   after_save :build_keywords
   before_save :get_content
+  after_save :add_content_to_search_index
   
   validates :url, presence: true, uniqueness: true
   
@@ -22,6 +23,11 @@ class SourcePage < ActiveRecord::Base
         keyword.relevance = params['relevance'].to_f if !keyword.relevance? || keyword.relevance < params['relevance'].to_f
       end
     end
+  end
+  
+  def add_content_to_search_index
+    search = Search.new
+    search.add_source_page(self)
   end
   
   def alchemyapi
