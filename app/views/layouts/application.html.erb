@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<div class="navigation">
+  <ul>
+    <li><%= link_to_unless_current('Home', root_path) %></li>
+    <li><%= link_to_unless_current('Source Pages', source_pages_path) %></li>
+    <li><%= link_to_unless_current('Keywords', keywords_path) %></li>
+  </ul>
+</div>
+  
 <%= yield %>
 
 </body>
