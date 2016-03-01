@@ -3,8 +3,14 @@ require_relative '../tools/alchemyapi'
 class SourcePage < ActiveRecord::Base
   has_many :keywords
   after_save :build_keywords
+  before_save :get_content
   
   validates :url, presence: true, uniqueness: true
+  
+  def get_content
+    self.content = html.at('.content-column').try :inner_text
+    self.content = html.at('body').inner_text unless content?
+  end
   
   def build_keywords
     keywords.delete_all
@@ -28,6 +34,10 @@ class SourcePage < ActiveRecord::Base
   
   def uri
     @uri ||= URI(url)
+  end
+  
+  def html
+    @html ||= Nokogiri::HTML(body)
   end
   
 end
