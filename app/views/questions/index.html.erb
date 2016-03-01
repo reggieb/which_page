@@ -46,7 +46,18 @@
       <p><%= link_to source_page.url, source_page %> <%= score %></p>
     <% end %>
 
-  <% end %>      
+  <% end %>  
+      
+<h2>Matching sites using text Search</h2>
+  <% unless @text_search.present? %>
+    <p>There are no pages matching the text you've entered.</p>
+  <% else %>
+    <p>Using the original text: <%= @text %></p>
+    <% @text_search.each do |source_page, score| %>
+      <p><%= link_to source_page.url, source_page %> <%= score %></p>
+    <% end %>
+
+  <% end %>       
       
 <% end %>
         
